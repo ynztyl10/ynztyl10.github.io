@@ -3,10 +3,10 @@
   <channel>
     <title>L.Yang</title>
     <description>为了更好的自己</description>
-    <link>http://lyang.me/</link>
-    <atom:link href="http://lyang.me/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 20 Jan 2016 01:00:24 +0800</pubDate>
-    <lastBuildDate>Wed, 20 Jan 2016 01:00:24 +0800</lastBuildDate>
+    <link>http://lyang.cc/</link>
+    <atom:link href="http://lyang.cc/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Wed, 20 Jan 2016 01:32:20 +0800</pubDate>
+    <lastBuildDate>Wed, 20 Jan 2016 01:32:20 +0800</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -68,8 +68,8 @@
 
 </description>
         <pubDate>Wed, 20 Jan 2016 08:50:00 +0800</pubDate>
-        <link>http://lyang.me/2016/01/20/hello-2016/</link>
-        <guid isPermaLink="true">http://lyang.me/2016/01/20/hello-2016/</guid>
+        <link>http://lyang.cc/2016/01/20/hello-2016/</link>
+        <guid isPermaLink="true">http://lyang.cc/2016/01/20/hello-2016/</guid>
         
         <category>生活</category>
         
