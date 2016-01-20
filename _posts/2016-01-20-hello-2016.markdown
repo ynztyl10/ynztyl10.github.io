@@ -3,7 +3,7 @@ layout:     post
 title:      "Welcome to Lyang Blog"
 subtitle:   " \"Hello World, Hello Blog\""
 date:       2016-01-20 00:50:00
-author:     "Hux"
+author:     "Lyang"
 header-img: "img/post-bg-2016.jpg"
 tags:
     - 生活
