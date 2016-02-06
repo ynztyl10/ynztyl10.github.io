@@ -5,9 +5,196 @@
     <description>为了更好的自己</description>
     <link>http://lyang.cc/</link>
     <atom:link href="http://lyang.cc/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 21 Jan 2016 01:06:53 +0800</pubDate>
-    <lastBuildDate>Thu, 21 Jan 2016 01:06:53 +0800</lastBuildDate>
+    <pubDate>Sat, 06 Feb 2016 16:08:32 +0800</pubDate>
+    <lastBuildDate>Sat, 06 Feb 2016 16:08:32 +0800</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>简单好用的iTunes API</title>
+        <description>&lt;h1 id=&quot;itunes-api&quot;&gt;简单好用的iTunes API&lt;/h1&gt;
+
+&lt;p&gt;最近需要抓取AppStore中应用的用户评论信息，做反馈聚合，找到几个比较有用的iTunes API，能够通过这些API来获取应用的信息（应用的基本信息、AppStore排行榜、应用的评价信息），而且这些API都是公开可用，并不需要爬虫什么的来抓取。&lt;/p&gt;
+
+&lt;h2 id=&quot;itunes-search-apis&quot;&gt;iTunes Search APIs&lt;/h2&gt;
+&lt;p&gt;最基本的搜索API，在苹果官网也有详细的&lt;a href=&quot;http://www.apple.com/itunes/affiliates/resources/documentation/itunes-store-web-service-search-api.html&quot;&gt;说明文档&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;lookup-api&quot;&gt;lookup API&lt;/h3&gt;
+&lt;p&gt;根据app id获取app的详细信息，比如icon、售价、评论、截图等。&lt;/p&gt;
+
+&lt;p&gt;例如，书旗小说的app id是&lt;strong&gt;733689509&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;https://itunes.apple.com/lookup?id=733689509
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;得到结果如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+&quot;resultCount&quot;: 1,
+&quot;results&quot;: [
+    {
+        &quot;artistViewUrl&quot;: &quot;https://itunes.apple.com/us/developer/guang-zhou-li-ba-ba-wen-xue/id1025705471?uo=4&quot;,
+        &quot;artworkUrl60&quot;: &quot;http://is5.mzstatic.com/image/thumb/Purple69/v4/36/71/72/36717229-e8ed-5078-b341-311e18413810/source/60x60bb.jpg&quot;,
+        &quot;artworkUrl100&quot;: &quot;http://is5.mzstatic.com/image/thumb/Purple69/v4/36/71/72/36717229-e8ed-5078-b341-311e18413810/source/100x100bb.jpg&quot;,
+        &quot;screenshotUrls&quot;: [
+            &quot;http://a4.mzstatic.com/us/r30/Purple7/v4/81/c1/68/81c168f9-a9ec-5756-55e1-2645f7e6c57c/screen1136x1136.jpeg&quot;,
+            &quot;http://a4.mzstatic.com/us/r30/Purple5/v4/74/4e/5b/744e5b38-deb4-6974-cfd6-e4db0137aa5d/screen1136x1136.jpeg&quot;,
+            &quot;http://a4.mzstatic.com/us/r30/Purple7/v4/d2/ee/35/d2ee3599-e42c-b73a-7151-4bb2414a0125/screen1136x1136.jpeg&quot;,
+            &quot;http://a5.mzstatic.com/us/r30/Purple69/v4/a3/62/a6/a362a623-6528-66af-1292-dfb2b6f1e6b5/screen1136x1136.jpeg&quot;,
+            &quot;http://a5.mzstatic.com/us/r30/Purple7/v4/b7/d2/3e/b7d23efb-53f6-1e43-b695-e7015867ee25/screen1136x1136.jpeg&quot;
+        ],
+        &quot;ipadScreenshotUrls&quot;: [
+            &quot;http://a1.mzstatic.com/us/r30/Purple5/v4/4f/91/7d/4f917d66-63c6-dad8-8444-c1753336892d/screen480x480.jpeg&quot;,
+            &quot;http://a3.mzstatic.com/us/r30/Purple7/v4/7e/01/55/7e015576-7d80-bfd3-a782-7022c993240a/screen480x480.jpeg&quot;,
+            &quot;http://a3.mzstatic.com/us/r30/Purple5/v4/88/15/32/881532cb-1236-0398-92d2-59d22457941d/screen480x480.jpeg&quot;,
+            &quot;http://a4.mzstatic.com/us/r30/Purple7/v4/f8/ff/cf/f8ffcfc1-3153-1c06-d16f-eec10fe23607/screen480x480.jpeg&quot;,
+            &quot;http://a3.mzstatic.com/us/r30/Purple7/v4/a2/75/29/a27529b7-4aef-f59d-763e-490285785203/screen480x480.jpeg&quot;
+        ],
+        &quot;artworkUrl512&quot;: &quot;http://is5.mzstatic.com/image/thumb/Purple69/v4/36/71/72/36717229-e8ed-5078-b341-311e18413810/source/512x512bb.jpg&quot;,
+        &quot;kind&quot;: &quot;software&quot;,
+        &quot;features&quot;: [
+            &quot;iosUniversal&quot;
+        ],
+        &quot;supportedDevices&quot;: [
+            &quot;iPhone4&quot;,
+            &quot;iPad2Wifi&quot;,
+            &quot;iPad23G&quot;,
+            &quot;iPhone4S&quot;,
+            &quot;iPadThirdGen&quot;,
+            &quot;iPadThirdGen4G&quot;,
+            &quot;iPhone5&quot;,
+            &quot;iPodTouchFifthGen&quot;,
+            &quot;iPadFourthGen&quot;,
+            &quot;iPadFourthGen4G&quot;,
+            &quot;iPadMini&quot;,
+            &quot;iPadMini4G&quot;,
+            &quot;iPhone5c&quot;,
+            &quot;iPhone5s&quot;,
+            &quot;iPhone6&quot;,
+            &quot;iPhone6Plus&quot;,
+            &quot;iPodTouchSixthGen&quot;
+        ],
+        &quot;advisories&quot;: [
+            &quot;Infrequent/Mild Realistic Violence&quot;,
+            &quot;Infrequent/Mild Horror/Fear Themes&quot;,
+            &quot;Infrequent/Mild Cartoon or Fantasy Violence&quot;,
+            &quot;Infrequent/Mild Alcohol, Tobacco, or Drug Use or References&quot;,
+            &quot;Frequent/Intense Sexual Content or Nudity&quot;,
+            &quot;Frequent/Intense Mature/Suggestive Themes&quot;,
+            &quot;Infrequent/Mild Profanity or Crude Humor&quot;
+        ],
+        &quot;isGameCenterEnabled&quot;: false,
+        &quot;contentAdvisoryRating&quot;: &quot;17+&quot;,
+        &quot;languageCodesISO2A&quot;: [
+            &quot;ZH&quot;
+        ],
+        &quot;trackViewUrl&quot;: &quot;https://itunes.apple.com/us/app/shu-qi-xiao-shuo-shu-qi-zheng/id733689509?mt=8&amp;amp;uo=4&quot;,
+        &quot;trackCensoredName&quot;: &quot;书旗小说 - 书旗正版最全的小说阅读器&quot;,
+        &quot;fileSizeBytes&quot;: &quot;39761830&quot;,
+        &quot;trackContentRating&quot;: &quot;17+&quot;,
+        &quot;currentVersionReleaseDate&quot;: &quot;2016-02-04T10:05:31Z&quot;,
+        &quot;sellerName&quot;: &quot;Guangzhou Alibaba Literature Information Technology Technology Co., Ltd.&quot;,
+        &quot;currency&quot;: &quot;USD&quot;,
+        &quot;wrapperType&quot;: &quot;software&quot;,
+        &quot;version&quot;: &quot;2.4.2&quot;,
+        &quot;description&quot;: &quot;必备小说阅读神器！必备电子书阅读神器！\n\n最全的小说！更新最快！新书最多！\n\n功能体验全面升级，大量小说！全网小说任你搜！\n\n更新及时，秒速提醒！新书推荐，懂你所想！\n\n增加出版物，心灵鸡汤成功励志口才演讲职场，等你来读！\n\n\n功能介绍：\n\n1、新增二十多万本热门书籍，让你看都看不完\n2、加强推荐，看完一本还有很多本\n3、加强搜索，搜书名搜作者搜标签\n4、还是搜索，还能智能纠正错别字\n5、优化细节体验，解决已知的bug\n\n我们的QQ用户群是“210651368”，热切盼望您的加入哈！后续有活动也会第一时间通知群里的书友们的，让我们一起把书旗做的更好！&quot;,
+        &quot;artistId&quot;: 1025705471,
+        &quot;artistName&quot;: &quot;广州阿里巴巴文学信息技术有限公司&quot;,
+        &quot;genres&quot;: [
+            &quot;Books&quot;,
+            &quot;Entertainment&quot;
+        ],
+        &quot;price&quot;: 0,
+        &quot;releaseDate&quot;: &quot;2014-01-30T21:54:29Z&quot;,
+        &quot;primaryGenreName&quot;: &quot;Book&quot;,
+        &quot;primaryGenreId&quot;: 6018,
+        &quot;trackId&quot;: 733689509,
+        &quot;trackName&quot;: &quot;书旗小说 - 书旗正版最全的小说阅读器&quot;,
+        &quot;bundleId&quot;: &quot;com.shuqicenter.reader&quot;,
+        &quot;minimumOsVersion&quot;: &quot;7.0&quot;,
+        &quot;genreIds&quot;: [
+            &quot;6018&quot;,
+            &quot;6016&quot;
+        ],
+        &quot;formattedPrice&quot;: &quot;Free&quot;,
+        &quot;isVppDeviceBasedLicensingEnabled&quot;: true,
+        &quot;releaseNotes&quot;: &quot;1、优化充值流程\n2、更快的检查更新，让你最快的看到大神更新\n3、开放大量限免书籍\n4、优化大量体验问题&quot;,
+        &quot;averageUserRating&quot;: 4.5,
+        &quot;userRatingCount&quot;: 12
+    }
+] }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;另外，还可以指定国家和区域，只需要在url中加上&lt;a href=&quot;https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2&quot;&gt;国家和区域代码&lt;/a&gt;&lt;br /&gt;
+例如，仅搜索中国地区：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;https://itunes.apple.com/cn/lookup?id=733689509
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;同时支持批量获取：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    https://itunes.apple.com/cn/lookup?id=733689509,733689510
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;search-api&quot;&gt;search API&lt;/h3&gt;
+&lt;p&gt;就跟我们在AppStore应用中搜索应用一样，输入query，得到结果。&lt;br /&gt;
+例如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;https://itunes.apple.com/search?term=书旗小说&amp;amp;country=cn&amp;amp;media=software
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;同时还有很多参数可选：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;country：区分不同国家和区域的AppStore
+media：按类型过滤，比如software
+entity：返回按类型过滤，比如movie
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;其他参数和例子，可参考&lt;a href=&quot;http://www.apple.com/itunes/affiliates/resources/documentation/itunes-store-web-service-search-api.html&quot;&gt;官方API文档&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h2 id=&quot;itunes-rss-feeds&quot;&gt;iTunes RSS Feeds&lt;/h2&gt;
+&lt;p&gt;RSS订阅，用于获取排行榜单，支持iPhone、iPad，任意分类下（游戏、效率等等）。&lt;/p&gt;
+
+&lt;p&gt;具体参数：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;genre：分类id
+limit：需要返回的topN
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;例如，获取&lt;strong&gt;游戏&lt;/strong&gt;分类下，top10的iPad应用：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;https://itunes.apple.com/rss/toppaidapplications/limit=10/genre=6014/json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;同样支持不同国家与区域：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;https://itunes.apple.com/cn/rss/toppaidapplications/limit=10/genre=6014/json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;我们可以通过&lt;a href=&quot;https://rss.itunes.apple.com/cn/?urlDesc=&quot;&gt; iTunes Store RSS Generator&lt;/a&gt;自行生成RSS订阅&lt;/p&gt;
+
+&lt;h2 id=&quot;app-reviews&quot;&gt;App Reviews&lt;/h2&gt;
+&lt;p&gt;根据app id获取应用的评价信息API。&lt;br /&gt;
+例如，获取书旗小说的用户评价：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;http://itunes.apple.com/rss/customerreviews/id=733689509/json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;同样支持不同国家和区域：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;http://itunes.apple.com/cn/rss/customerreviews/id=733689509/json
+&lt;/code&gt;&lt;/pre&gt;
+
+</description>
+        <pubDate>Sat, 06 Feb 2016 08:50:00 +0800</pubDate>
+        <link>http://lyang.cc/2016/02/06/Useful-iTunes-APIS-2016/</link>
+        <guid isPermaLink="true">http://lyang.cc/2016/02/06/Useful-iTunes-APIS-2016/</guid>
+        
+        <category>iTunes</category>
+        
+        <category>AppStore</category>
+        
+        
+      </item>
     
       <item>
         <title>Welcome to Lyang Blog</title>
@@ -16,8 +203,6 @@
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;section&quot;&gt;前言&lt;/h2&gt;
-
-&lt;p&gt;Lyang 的 Blog 就这么开通了。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;#build&quot;&gt;跳过废话，直接看技术实现 &lt;/a&gt;&lt;/p&gt;
 
@@ -49,23 +234,7 @@
   &lt;li&gt;Jekyll 的自定制非常容易，基本就是个模版引擎&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;本来觉得最大的缺点可能是 GitHub 在国内访问起来太慢。&lt;/p&gt;
-
-&lt;p&gt;开 Chrome DevTool 查了下网络请求，原来是 &lt;strong&gt;pending 在了 Google Fonts&lt;/strong&gt; 上，页面渲染一直被阻塞到请求超时为止，难怪这么慢。  &lt;br /&gt;
-忍痛割爱，只好把 Web Fonts 去了（反正超时看到的也只能是 fallback ），果然一下就正常了，虽然 github 的 ping 值明显要高一些，达到了 300ms，于是用 DNSPOD 优化了一下速度。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;配置的过程中也没遇到什么坑，基本就是 Git 的流程，相当顺手&lt;/p&gt;
-
-&lt;p&gt;大的 Jekyll 主题上直接 fork 了 Clean Blog&lt;/p&gt;
-
-&lt;p&gt;Theme 的 CSS 是基于 Bootstrap 定制的，看得不爽的地方直接在 Less 里改就好了&lt;/p&gt;
-
-&lt;p&gt;最后就进入了耗时反而最长的&lt;strong&gt;做图、写字&lt;/strong&gt;阶段，也算是进入了&lt;strong&gt;写博客&lt;/strong&gt;的正轨，因为是类似 Hack Day 的方式去搭这个站的，所以折腾折腾着大半夜就过去了。&lt;/p&gt;
-
-&lt;p&gt;第二天考虑中文字体的渲染，fork 了 &lt;a href=&quot;http://www.typeisbeautiful.com/&quot;&gt;Type is Beautiful&lt;/a&gt; 的 &lt;code&gt;font&lt;/code&gt; CSS，调整了字号，适配了 Win 的渣渲染，中英文混排效果好多了。&lt;/p&gt;
-
+&lt;p&gt;最大的缺点可能是 GitHub 在国内访问起来太慢。&lt;/p&gt;
 </description>
         <pubDate>Wed, 20 Jan 2016 08:50:00 +0800</pubDate>
         <link>http://lyang.cc/2016/01/20/hello-2016/</link>
