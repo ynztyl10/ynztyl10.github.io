@@ -5,8 +5,8 @@
     <description>为了更好的自己</description>
     <link>http://lyang.cc/</link>
     <atom:link href="http://lyang.cc/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 24 Feb 2016 01:06:46 +0800</pubDate>
-    <lastBuildDate>Wed, 24 Feb 2016 01:06:46 +0800</lastBuildDate>
+    <pubDate>Wed, 24 Feb 2016 01:09:52 +0800</pubDate>
+    <lastBuildDate>Wed, 24 Feb 2016 01:09:52 +0800</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -166,7 +166,7 @@ smtp.quit()
 &lt;p&gt;「简单」的背后，往往没那么简单。&lt;/p&gt;
 
 </description>
-        <pubDate>Wed, 24 Feb 2016 06:40:00 +0800</pubDate>
+        <pubDate>Wed, 24 Feb 2016 09:09:00 +0800</pubDate>
         <link>http://lyang.cc/2016/02/24/HTML-Email-2016/</link>
         <guid isPermaLink="true">http://lyang.cc/2016/02/24/HTML-Email-2016/</guid>
         
