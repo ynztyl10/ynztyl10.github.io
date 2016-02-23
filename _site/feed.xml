@@ -5,9 +5,177 @@
     <description>为了更好的自己</description>
     <link>http://lyang.cc/</link>
     <atom:link href="http://lyang.cc/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 18 Feb 2016 18:18:30 +0800</pubDate>
-    <lastBuildDate>Thu, 18 Feb 2016 18:18:30 +0800</lastBuildDate>
+    <pubDate>Wed, 24 Feb 2016 00:37:38 +0800</pubDate>
+    <lastBuildDate>Wed, 24 Feb 2016 00:37:38 +0800</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>Email中嵌入HTML</title>
+        <description>&lt;h1 id=&quot;emailhtml&quot;&gt;Email中嵌入HTML&lt;/h1&gt;
+
+&lt;p&gt;前段时间做过一个自动发送日报邮件的工具，可以根据选取的项目，统计出当天该项目的bug解决状态，发送日报模板邮件给版本负责人。&lt;/p&gt;
+
+&lt;p&gt;我以为这是个很简单的事情，无非就是设计一个网页，展示图表完全可以用HighCharts生成，用上丰富的CSS3和HTML5特性，可以让我的Email显得那么「&lt;strong&gt;高大上&lt;/strong&gt;」。&lt;/p&gt;
+
+&lt;p&gt;然后，我发现这事不那么容易。抛开后台和编辑工作，单单是设计一个Email样板，就需要不少心思。&lt;/p&gt;
+
+&lt;p&gt;因为这种带格式的邮件，其实就是一张网页，正式名称叫做&lt;a href=&quot;https://en.wikipedia.org/wiki/HTML_email&quot;&gt;HTML Email&lt;/a&gt;。它能否正常显示，完全取决于邮件客户端。大多数的邮件客户端（比如Outlook和Gmail），会过滤HTML设置，让邮件面目全非。&lt;br /&gt;
+我发现，编写HTML Email的窍门，就是使用15年前的网页制作方法。&lt;/p&gt;
+
+&lt;h2 id=&quot;doctype&quot;&gt;Doctype&lt;/h2&gt;
+&lt;p&gt;我们知道HTML网页通常都会在首行设置Doctype，用于文档规范。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;XHTML 1.0 Transitional&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; 
+&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&amp;gt;
+&amp;lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot; /&amp;gt;
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;HTML5&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;!DOCTYPE HTML&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot; /&amp;gt;
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;No doctype&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot; /&amp;gt;
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;目前，Email中兼容性最好的是「&lt;strong&gt;XHTML 1.0 Transitional&lt;/strong&gt;」。事实上，经过网上查阅资料，发现很多邮件客户端（比如Hotmail和Gmail）会删掉你原本的Doctype，换上这个Doctype。&lt;/p&gt;
+
+&lt;p&gt;同时，很多资料中也指出，推荐使用「&lt;strong&gt;XHTML 1.0 Transitional&lt;/strong&gt;」。这意味着，很多HTML5的特性我们都不能用了。&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;外部资源&lt;/h2&gt;
+&lt;p&gt;我们在开发HTML网页时，一般都会引用外部资源，CSS、JS、Image等等，但是当我们用到Email中时，这些外部资源就没那么「&lt;strong&gt;好用&lt;/strong&gt;」了。&lt;/p&gt;
+
+&lt;h3 id=&quot;css&quot;&gt;CSS&lt;/h3&gt;
+&lt;p&gt;CSS还能用，但是就像文章标题一样，完全就是15年前的技术。&lt;/p&gt;
+
+&lt;p&gt;你想使用CSS3特性？「&lt;strong&gt;No Way&lt;/strong&gt;」。&lt;/p&gt;
+
+&lt;p&gt;不过好在还能使用的class属性，但是需要注意的是，不同的邮件客户端，支持的style也不尽相同。具体差异可以参考「&lt;a href=&quot;https://www.campaignmonitor.com/css/&quot;&gt;这里&lt;/a&gt;」。&lt;/p&gt;
+
+&lt;p&gt;因此，为了兼容性，我们最好使用元素的内联style，因为放置在网页头部的样式，很可能会被客户端删除。也就是说我们需要写成这样的形式：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;body style=&quot;margin: 0; padding: 0;&quot;&amp;gt;
+  &amp;lt;table border=&quot;1&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&amp;gt;
+    &amp;lt;tr&amp;gt; 
+      &amp;lt;td&amp;gt; Hello! &amp;lt;/td&amp;gt;
+    &amp;lt;/tr&amp;gt;
+  &amp;lt;/table&amp;gt;
+&amp;lt;/body&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;是不是像回到了15年前？不过在实际使用中，我发现大多数邮件客户端是能够兼容简单的&lt;code&gt;class&lt;/code&gt;属性，比如一些&lt;code&gt;width&lt;/code&gt;、&lt;code&gt;height&lt;/code&gt;、&lt;code&gt;font&lt;/code&gt;等等。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;即使是使用class属性来定制元素的style，也无法从外部引用CSS样式文件，只能写在该网页的style标签中。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;也有一些小工具可以帮助我们将&lt;code&gt;style&lt;/code&gt;标签中的样式转换为内联（inline style）属性&lt;br /&gt;
+- &lt;a href=&quot;https://github.com/peterbe/premailer&quot;&gt;premailer-python&lt;/a&gt; 转换工具python版&lt;br /&gt;
+- &lt;a href=&quot;https://github.com/premailer/premailer&quot;&gt;premailer-ruby&lt;/a&gt; 转换工具ruby版&lt;br /&gt;
+- &lt;a href=&quot;https://github.com/onassar/PHP-Premailer&quot;&gt;premailer-php&lt;/a&gt; 转换工具PHP版&lt;/p&gt;
+
+&lt;h3 id=&quot;js&quot;&gt;JS&lt;/h3&gt;
+&lt;p&gt;众多资料告诉我，最好不要这么做……&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;图片资源&lt;/h3&gt;
+&lt;p&gt;图片是唯一可以引用的外部资源。终于可以正常写标签了……&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;img src=&quot;http://somehost/src/image/someimage.png&quot;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;需要注意的是，不少客户端默认不显示图片（比如Gmail），所以要确保即使没有图片，主要内容也能被阅读。&lt;/p&gt;
+
+&lt;h4 id=&quot;email&quot;&gt;Email中插入图片资源&lt;/h4&gt;
+&lt;p&gt;如果我们想直接将图片插入到Email中该怎么做呢？&lt;/p&gt;
+
+&lt;p&gt;这也是有办法的，稍微复杂一点。就是直接使用MIMEImage，下面是一个简单的示例：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Send an HTML email with an embedded image and a plain text message for
+# email clients that don&#39;t want to display the HTML.
+
+from email.MIMEMultipart import MIMEMultipart
+from email.MIMEText import MIMEText
+from email.MIMEImage import MIMEImage
+
+# Define these once; use them twice!
+strFrom = &#39;from@example.com&#39;
+strTo = &#39;to@example.com&#39;
+
+# Create the root message and fill in the from, to, and subject headers
+msgRoot = MIMEMultipart(&#39;related&#39;)
+msgRoot[&#39;Subject&#39;] = &#39;test message&#39;
+msgRoot[&#39;From&#39;] = strFrom
+msgRoot[&#39;To&#39;] = strTo
+msgRoot.preamble = &#39;This is a multi-part message in MIME format.&#39;
+
+# Encapsulate the plain and HTML versions of the message body in an
+# &#39;alternative&#39; part, so message agents can decide which they want to display.
+msgAlternative = MIMEMultipart(&#39;alternative&#39;)
+msgRoot.attach(msgAlternative)
+
+msgText = MIMEText(&#39;This is the alternative plain text message.&#39;)
+msgAlternative.attach(msgText)
+
+# We reference the image in the IMG SRC attribute by the ID we give it below
+msgText = MIMEText(&#39;&amp;lt;b&amp;gt;Some &amp;lt;i&amp;gt;HTML&amp;lt;/i&amp;gt; text&amp;lt;/b&amp;gt; and an image.&amp;lt;br&amp;gt;&amp;lt;img src=&quot;cid:image1&quot;&amp;gt;&amp;lt;br&amp;gt;Nifty!&#39;, &#39;html&#39;)
+msgAlternative.attach(msgText)
+
+# This example assumes the image is in the current directory
+fp = open(&#39;test.jpg&#39;, &#39;rb&#39;)
+msgImage = MIMEImage(fp.read())
+fp.close()
+
+# Define the image&#39;s ID as referenced above
+msgImage.add_header(&#39;Content-ID&#39;, &#39;&amp;lt;image1&amp;gt;&#39;)
+msgRoot.attach(msgImage)
+
+# Send the email (this example assumes SMTP authentication is required)
+import smtplib
+smtp = smtplib.SMTP()
+smtp.connect(&#39;smtp.example.com&#39;)
+smtp.login(&#39;exampleuser&#39;, &#39;examplepass&#39;)
+smtp.sendmail(strFrom, strTo, msgRoot.as_string())
+smtp.quit()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;总结&lt;/h2&gt;
+&lt;p&gt;再漂亮的HTML网页，发送成邮件之后总是或多或少会有问题，也许是Email这个互联网老前辈步伐迟缓，也许是处于安全考虑（禁止使用JS脚本），总之Email作为互联网元老级产品，仍然会伴随我们很长一段时间。&lt;/p&gt;
+
+&lt;p&gt;近年来看，越来越多的邮件客户端开始支持HTML5，也许将来有一天，我们写Email也会变得跟写HTML一样简单。&lt;/p&gt;
+
+&lt;p&gt;「简单」的背后，往往没那么简单。&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 24 Feb 2016 06:40:00 +0800</pubDate>
+        <link>http://lyang.cc/2016/02/24/HTML-Email-2016/</link>
+        <guid isPermaLink="true">http://lyang.cc/2016/02/24/HTML-Email-2016/</guid>
+        
+        <category>Email</category>
+        
+        <category>HTML</category>
+        
+        
+      </item>
     
       <item>
         <title>简单好用的iTunes API</title>
