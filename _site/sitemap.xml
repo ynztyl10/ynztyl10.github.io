@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-<url>
-  <loc>http://lyang.cc/</loc>
-  <lastmod>2016-02-18T10:05:31+00:00</lastmod>
-</url>
-<url>
-  <loc>http://lyang.cc/about/</loc>
-  <lastmod>2016-02-18T10:05:31+00:00</lastmod>
-</url>
-<url>
-  <loc>http://lyang.cc/tags/</loc>
-  <lastmod>2016-02-18T10:05:31+00:00</lastmod>
-</url>
-<url>
-  <loc>http://lyang.cc/2016/02/06/Useful-iTunes-APIS-2016/</loc>
-  <lastmod>2016-02-18T10:05:31+00:00</lastmod>
-</url>
-<url>
-  <loc>http://lyang.cc/2016/01/20/hello-2016/</loc>
-  <lastmod>2016-02-18T10:05:31+00:00</lastmod>
-</url>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://lyang.cc/2016/02/24/HTML-Email-2016/</loc>
+    <lastmod>2016-02-24T09:09:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>http://lyang.cc/2016/02/06/Useful-iTunes-APIS-2016/</loc>
+    <lastmod>2016-02-06T08:50:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>http://lyang.cc/2016/01/20/hello-2016/</loc>
+    <lastmod>2016-01-20T08:50:00+08:00</lastmod>
+  </url>
+  <url>
+    <loc>http://lyang.cc/404.html</loc>
+  </url>
+  <url>
+    <loc>http://lyang.cc/about/</loc>
+  </url>
+  <url>
+    <loc>http://lyang.cc/</loc>
+  </url>
+  <url>
+    <loc>http://lyang.cc/tags/</loc>
+  </url>
+  <url>
+    <loc>http://lyang.cc/googlef20179b33a4a6392.html</loc>
+    <lastmod>2016-02-18T17:53:04+08:00</lastmod>
+  </url>
 </urlset>
