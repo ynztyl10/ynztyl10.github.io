@@ -5,8 +5,8 @@
     <description>为了更好的自己</description>
     <link>http://lyang.cc/</link>
     <atom:link href="http://lyang.cc/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 24 Feb 2016 18:08:40 +0800</pubDate>
-    <lastBuildDate>Wed, 24 Feb 2016 18:08:40 +0800</lastBuildDate>
+    <pubDate>Wed, 24 Feb 2016 18:14:44 +0800</pubDate>
+    <lastBuildDate>Wed, 24 Feb 2016 18:14:44 +0800</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -89,10 +89,13 @@
   &lt;p&gt;即使是使用class属性来定制元素的style，也无法从外部引用CSS样式文件，只能写在该网页的style标签中。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;也有一些小工具可以帮助我们将&lt;code&gt;style&lt;/code&gt;标签中的样式转换为内联（inline style）属性&lt;br /&gt;
-- &lt;a href=&quot;https://github.com/peterbe/premailer&quot;&gt;premailer-python&lt;/a&gt; 转换工具python版&lt;br /&gt;
-- &lt;a href=&quot;https://github.com/premailer/premailer&quot;&gt;premailer-ruby&lt;/a&gt; 转换工具ruby版&lt;br /&gt;
-- &lt;a href=&quot;https://github.com/onassar/PHP-Premailer&quot;&gt;premailer-php&lt;/a&gt; 转换工具PHP版&lt;/p&gt;
+&lt;p&gt;也有一些小工具可以帮助我们将&lt;code&gt;style&lt;/code&gt;标签中的样式转换为内联（inline style）属性&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/peterbe/premailer&quot;&gt;premailer-python&lt;/a&gt; 转换工具python版&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/premailer/premailer&quot;&gt;premailer-ruby&lt;/a&gt; 转换工具ruby版&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/onassar/PHP-Premailer&quot;&gt;premailer-php&lt;/a&gt; 转换工具PHP版&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;js&quot;&gt;JS&lt;/h3&gt;
 &lt;p&gt;众多资料告诉我，最好不要这么做……&lt;/p&gt;

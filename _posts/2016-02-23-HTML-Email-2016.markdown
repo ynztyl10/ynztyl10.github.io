@@ -79,9 +79,10 @@ CSS还能用，但是就像文章标题一样，完全就是15年前的技术。
 > 即使是使用class属性来定制元素的style，也无法从外部引用CSS样式文件，只能写在该网页的style标签中。
 
 也有一些小工具可以帮助我们将`style`标签中的样式转换为内联（inline style）属性
-- [premailer-python](https://github.com/peterbe/premailer) 转换工具python版
-- [premailer-ruby](https://github.com/premailer/premailer) 转换工具ruby版
-- [premailer-php](https://github.com/onassar/PHP-Premailer) 转换工具PHP版
+
+* [premailer-python](https://github.com/peterbe/premailer) 转换工具python版
+* [premailer-ruby](https://github.com/premailer/premailer) 转换工具ruby版
+* [premailer-php](https://github.com/onassar/PHP-Premailer) 转换工具PHP版
 
 ### JS
 众多资料告诉我，最好不要这么做……
